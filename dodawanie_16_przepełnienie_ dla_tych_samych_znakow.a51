@@ -67,7 +67,7 @@ powrot2:
 	mov A,R3
 	jb acc.7, czy_obie_dodatnie
 	jnb acc.7, czy_obie_ujemne
-
+	jc mieszane
 powrot5:
 	mov A, R7
 	JNB ACC.7,plus 	
@@ -95,13 +95,13 @@ plus:	mov A, R7
 	ljmp cos
 czy_obie_dodatnie:
 	mov A, 60h 	
-	jc mieszane 
+;	jnc mieszane 
 	cjne A, #32h, powrot5	
 	mov 37h, #2Bh
 	ljmp cos
 czy_obie_ujemne:	
 	mov A, 61h
-	jnc mieszane
+;	jc mieszane
 	cjne A, #32h, powrot5
 	mov 37h,#2Dh	
 	ljmp cos
